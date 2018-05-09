@@ -14,6 +14,6 @@ public class ForwardViewDispatcher implements IDispatcher{
 
     @Override
     public void dispatch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher(VIEW).forward(request,response);
     }
 }

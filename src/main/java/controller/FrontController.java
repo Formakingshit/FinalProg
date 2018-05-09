@@ -46,7 +46,7 @@ public class FrontController extends HttpServlet{
             String url = request.getMethod() +":"+request.getRequestURI();
 
             /*remove contextPath from requested url*/
-            url= url.replace(deployPath,"");
+            url = url.replace(deployPath,"");
 
     //        logger.info("URI requested " + url);
 
