@@ -2,11 +2,13 @@ package controller;
 
 import controller.commands.GoInvalidUrlCommand;
 import controller.commands.ICommand;
-import controller.commands.login.LoginCommand;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static controller.constants.UrlsConst.ADMIN_REPORT;
+import static controller.constants.UrlsConst.MAPPED_STATIC;
 
 public class CommandFabric {
 
@@ -50,6 +52,43 @@ public class CommandFabric {
      * @return appropriate Command object
      */
     ICommand getCommand(String url) {
-        return new LoginCommand();
+        //get not mapped command
+        ICommand command = getSimpleCommand(url);
+
+        if (command != null)
+            return command;
+
+        //get mapped command
+        command = getMappedCommand(url);
+
+        if (command != null)
+            return command;
+
+        //possible GET params passed
+        return invalidUrlCommand;
+
     }
+
+    /**
+     * Initialize CommandFabric object
+     */
+  /*  private void initMappedCommand() {
+        mappedCommands.put(GET_PATH + ADMIN_REPORT, new AdminUpdateBookCommand());
+        mappedCommands.put(GET_PATH + MAPPED_STATIC, new GetStaticFileCommand());
+    }
+*/
+    private ICommand getSimpleCommand(String url) {
+        return commands.get(url.split("\\?")[0]);
+    }
+
+    private ICommand getMappedCommand(String url) {
+        Set<String> mappedCommandsKeys = mappedCommands.keySet();
+        String nakedUrl = url.split("\\?")[0];
+
+        return mappedCommandsKeys.parallelStream()
+                .filter(commandKey -> nakedUrl.matches(commandKey.replaceAll("\\{.*}", ".*")))
+                .findAny()
+                .map(mappedCommands::get).orElse(null);
+    }
+
 }
