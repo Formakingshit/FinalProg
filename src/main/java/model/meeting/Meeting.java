@@ -99,7 +99,17 @@ public class Meeting {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(time, place, register, status, idReport);
+    }
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "time=" + time +
+                ", place='" + place + '\'' +
+                ", register=" + register +
+                ", status=" + status +
+                ", idReport=" + idReport +
+                '}';
     }
 }

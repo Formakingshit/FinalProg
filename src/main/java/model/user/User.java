@@ -150,4 +150,18 @@ public class User extends IdContainer {
     public int hashCode() {
         return Objects.hash(login, password, name, soname, email, role, rating, pay);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", soname='" + soname + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", rating=" + rating +
+                ", pay=" + pay +
+                '}';
+    }
 }

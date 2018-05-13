@@ -1,6 +1,5 @@
 package model.userReport;
 
-import com.sun.jmx.snmp.EnumRowStatus;
 import model.EventStatus;
 
 public class UserReport {
@@ -53,5 +52,14 @@ public class UserReport {
         public UserReport build(){
             return userReport;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "UserReport{" +
+                "idUser=" + idUser +
+                ", idReport=" + idReport +
+                ", status=" + status +
+                '}';
     }
 }

@@ -120,7 +120,18 @@ public class Report extends IdContainer {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(subject, place, time, register, idSpeaker, status);
+    }
+
+    @Override
+    public String toString() {
+        return "Report{" +
+                "subject='" + subject + '\'' +
+                ", place='" + place + '\'' +
+                ", time=" + time +
+                ", register=" + register +
+                ", idSpeaker=" + idSpeaker +
+                ", status=" + status +
+                '}';
     }
 }

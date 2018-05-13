@@ -2,6 +2,8 @@ package model.userMeeting;
 
 import model.EventStatus;
 
+import java.util.Objects;
+
 public class UserMeeting {
     private int idUser;
     private int idMeeting;
@@ -52,5 +54,29 @@ public class UserMeeting {
         public UserMeeting build() {
             return userMeeting;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserMeeting that = (UserMeeting) o;
+        return idUser == that.idUser &&
+                idMeeting == that.idMeeting &&
+                status == that.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idUser, idMeeting, status);
+    }
+
+    @Override
+    public String toString() {
+        return "UserMeeting{" +
+                "idUser=" + idUser +
+                ", idMeeting=" + idMeeting +
+                ", status=" + status +
+                '}';
     }
 }
