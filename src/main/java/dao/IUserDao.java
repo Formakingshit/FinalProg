@@ -2,8 +2,9 @@ package dao;
 
 import model.user.User;
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserDao extends IGenericDao<User> {
-    List<User> getUserByLogin(String login);
+    Optional<User> getUserByLogin(String login);
 }
 

@@ -1,0 +1,5 @@
+dao\jdbc\DaoTest.class
+dao\wrapper\NoTransactionalWrapper.class
+dao\jdbc\UserDaoTest.class
+dao\wrapper\RollbackRepeatableReadVoidTransaction.class
+dao\wrapper\RollbackReadCommitedVoidTransaction.class
