@@ -67,7 +67,7 @@ public class UserDaoTest extends DaoTest{
     }
 
     @Test
-    public void getById() {
+    public void getById() throws Exception{
 
         executeInNoTransactionalWrapper(transactionManager -> {
             IUserDao userDao = transactionManager.getUserDao();

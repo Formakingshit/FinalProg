@@ -27,7 +27,7 @@ public class UserDao extends AbstractDao implements IUserDao {
             "(name, soname, login, password, email, role, rating, pay)\n" +
             "    VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-    public static final String ID_FIELD_USER = "id";
+    public static final String ID_FIELD_USER = "id_user";
     public static final String LOGIN_FIELD_USER = "login";
     public static final String NAME_FIELD_USER = "name";
     public static final String SONAME_FIELD_USER = "soname";
