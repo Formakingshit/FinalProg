@@ -1,13 +1,12 @@
 package service;
 
-
-import java.util.List;
+import java.util.Optional;
 
 public interface ICrudService<T> {
 
     T create(T t);
 
-    List<T> getById(int id);
+    Optional<T> getById(int id);
 
     void update(T t);
 

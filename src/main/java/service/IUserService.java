@@ -1,8 +1,8 @@
 package service;
 
 import model.user.User;
-import java.util.List;
+import java.util.Optional;
 
 public interface IUserService extends ICrudService<User> {
-    List<User> getUserByLogin(String login);
+    Optional<User> getUserByLogin(String login);
 }
