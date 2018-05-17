@@ -1,7 +1,6 @@
 package dao.wrapper;
 
 import dao.connection.ITransactionManager;
-import dao.connection.TransactionManager;
 import dao.connection.TransactionManagerFactory;
 
 @FunctionalInterface
@@ -10,7 +9,7 @@ public interface RollbackReadCommitedVoidTransaction {
         ITransactionManager daoManager = TransactionManagerFactory
                 .getInstance().createTransactionManager();
         daoManager.beginTransaction();
-        processMethod((TransactionManager) daoManager);
+        processMethod(daoManager);
         daoManager.rollbackTransaction();
     }
 
